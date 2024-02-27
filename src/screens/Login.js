@@ -13,13 +13,6 @@ const LoginScreen = ({ navigation }) => {
   const [message, setMessage] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
 
-  <ImageBackground
-  source={require('../assets/bg.png')} // Replace with the path to your image
-  style={styles.backgroundImage}
->
-
-</ImageBackground>
-
   const handleLogin = async () => {
     try {
       const response = await axios.post('https://kind-fez-ox.cyclic.app/api/login', { username, password });
@@ -53,7 +46,7 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/gb1.png')} // Adjust the path based on your project structure
+        source={require('../assets/gbhome.png')}
         style={styles.logo}
       />
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -101,10 +94,6 @@ const LoginScreen = ({ navigation }) => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover', // or 'stretch' for different cover strategies
-      },
   container: {
     backgroundColor: '#FFFFFF',
     flex: 1,

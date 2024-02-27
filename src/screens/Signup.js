@@ -88,10 +88,6 @@ const SignupScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.loginContainer}>
-                <Image
-                    source={require('../assets/gb2.png')}
-                    style={styles.logo}
-                />
                 <View style={styles.inputContainer}>
                     <Icon name="user" size={20} color="#AC87C5" />
                     <TextInput

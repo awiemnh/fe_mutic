@@ -1,24 +1,19 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image, Button, TextInput } from 'react-native';
 import React from 'react';
-import AtmaBold from '../assets/Atma-Bold.ttf'
-import AtmaMedium from '../assets/Atma-Medium.ttf'
-import {useFonts} from 'expo-font';
-import axios from 'axios';
-import Icon from 'react-native-vector-icons/FontAwesome';
-//import PopUpError from '../components/PopUpError';
-//import PopUpSignup from '../components/PopUpSignup';
-
+import LinearGradient from 'react-native-linear-gradient';
+import { ImageBackground } from 'react-native';
 
 
 const HomeScreen = ({navigation}) => {
-
+const Background = require("../assets/bg.png");
+    
   return (
+    <ImageBackground source={require('../assets/bg.png')} // Replace with the path to your image
+    style={styles.backgroundGradient}>
+
+    
     <View style={styles.container}>
-      <Text style={styles.hiText}>PINGSUT{'\n'}</Text>
-      <Image
-        source={require('../assets/gb3.png')} // Adjust the path based on your project structure
-        style={styles.logo}
-      />
+      <Text style={styles.hiText}>Selamat Datang di Layanan Booking Antrean{'\n'}</Text>
   
       <TouchableOpacity style={styles.logButton} onPress={() => navigation.navigate('Login')}>
         <Text style={styles.loginText}>Login</Text>
@@ -29,20 +24,22 @@ const HomeScreen = ({navigation}) => {
       </TouchableOpacity>
 
     </View>
+    </ImageBackground>
   );
+
 };
 
 
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#FFE5E5',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 30,
-  },
+    backgroundGradient: {
+        flex: 1,
+        width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+      },
+
   logo: {
     width: 308,
     height: 153,
@@ -50,40 +47,39 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   hiText: {
-    color: '#756ab6',
+    color: '#F9F7C9',
     fontSize: 36,
     fontWeight: 'bold',
     alignItems: 'center',
-    fontFamily: 'AtmaBold'
   },
   logButton: {
-    backgroundColor: '#E0AED0',
-    padding: 10,
-    borderRadius: 5,
+    backgroundColor: '#F9F7C9',
+    padding: 15,
+    borderRadius: 20,
     width: 320,
     alignItems: 'center',
     marginTop: 20
   },
   loginText: {
-    color: '#756AB6',
+    color: '#00A39D',
     alignItems: 'center',
     fontWeight: 'bold',
     position: 'relative',
-    fontFamily: 'AtmaMedium'
+    fontSize: 20,
   },
   signButton: {
-    backgroundColor: '#E0AED0',
-    padding: 10,
-    borderRadius: 5,
+    backgroundColor: '#F9F7C9',
+    padding: 15,
+    borderRadius: 20,
     width: 320,
     alignItems: 'center',
-    marginTop: 20
+    marginTop: 30
   },
   buttonText: {
-    color: '#756AB6',
+    color: '#00A39D',
     alignItems: 'center',
     fontWeight: 'bold',
     position: 'relative',
-    fontFamily: 'AtmaMedium'
+    fontSize: 20,
   },  
 });
