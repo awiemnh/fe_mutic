@@ -55,22 +55,22 @@ const LoginScreen = ({ navigation }) => {
         style={styles.logo}
       />
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Icon name="user" size={20} color="#00A39D" />
+        <Icon name="user" size={20} color="#F9F7C9" />
         <TextInput
           style={styles.input}
           placeholder='Masukkan Username'
-          placeholderTextColor='#00A39D'
+          placeholderTextColor='#F9F7C9'
           value={username}
           onChangeText={setUserName}
         />
       </View>
 
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Icon name="lock" size={20} color="#00A39D" />
+        <Icon name="lock" size={20} color="#F9F7C9" />
         <TextInput
           style={styles.input}
           placeholder='Masukkan Password'
-          placeholderTextColor='#00A39D'
+          placeholderTextColor='#F9F7C9'
           value={password}
           onChangeText={setPassword}
           secureTextEntry
@@ -118,16 +118,16 @@ const styles = StyleSheet.create({
     marginBottom: 30,
 },
   input: {
-    borderColor: '#00A39D',
+    borderColor: '#F9F7C9',
     margin: 5,
     padding: 10,
     borderWidth: 1,
     width: 300,
     borderRadius: 10,
-    backgroundColor: '#F9F7C9',
+    //backgroundColor: '#F9F7C9',
   },
   loginButton: {
-    backgroundColor: '#AAD9BB',
+    backgroundColor: '#F8AD3C',
     padding: 10,
     borderRadius: 5,
     width: 320,
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   loginText: {
-    color: '#00A39D',
+    color: '#F9F7C9',
     alignItems: 'center',
     fontWeight: 'bold',
     position: 'relative'

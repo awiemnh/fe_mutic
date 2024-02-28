@@ -8,7 +8,8 @@ import { ImageBackground } from 'react-native';
 const SignupScreen = ({ navigation }) => {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    // const [name, setName] = useState('');
     const [retypePassword, setRetypePassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [showRetypePassword, setShowRetypePassword] = useState(false);
@@ -22,8 +23,9 @@ const SignupScreen = ({ navigation }) => {
         const unsubscribe = navigation.addListener('focus', () => {
             // Reset form values when navigating to signup screen
             setUserName('');
+            setEmail('');
             setPassword('');
-            setName('');
+            // setName('');
             setRetypePassword('');
         });
 
@@ -51,7 +53,7 @@ const SignupScreen = ({ navigation }) => {
           }
   
           // Check if the username already exists
-          const response = await axios.post('https://kind-fez-ox.cyclic.app/api/signup', { username, password, name, retypePassword });
+          const response = await axios.post('https://kind-fez-ox.cyclic.app/api/signup', { username, password, email, retypePassword });
 
           console.log('response', response);
   
@@ -96,36 +98,36 @@ const SignupScreen = ({ navigation }) => {
       />
             <View style={styles.loginContainer}>
                 <View style={styles.inputContainer}>
-                    <Icon name="user" size={20} color="#00A39D" />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Masukkan Nama"
-                        placeholderTextColor="#00A39D"
-                        value={name}
-                        onChangeText={setName}
-                    />
-                </View>
-
-                <View style={styles.inputContainer}>
-                    <Icon name="user" size={20} color="#00A39D" />
+                    <Icon name="user" size={20} color="#F9F7C9" />
                     <TextInput
                         style={styles.input}
                         placeholder="Masukkan Username"
-                        placeholderTextColor="#00A39D"
+                        placeholderTextColor="#F9F7C9"
                         value={username}
                         onChangeText={setUserName}
                     />
                 </View>
 
                 <View style={styles.inputContainer}>
+                    <Icon name="inbox" size={20} color="#F9F7C9" />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Masukkan Email"
+                        placeholderTextColor="#F9F7C9"
+                        value={email}
+                        onChangeText={setEmail}
+                    />
+                </View>
+
+                <View style={styles.inputContainer}>
                     {/* <Icon name="lock" size={20} color="#AC87C5" /> */}
                     <TouchableOpacity onPress={toggleShowPassword}>
-                        <Icon name={showPassword ? 'eye-slash' : 'eye'} size={17} color="#00A39D" />
+                        <Icon name={showPassword ? 'eye-slash' : 'eye'} size={17} color="#F9F7C9" />
                     </TouchableOpacity>
                     <TextInput
                         style={styles.input}
                         placeholder="Masukkan Password"
-                        placeholderTextColor="#00A39D"
+                        placeholderTextColor="#F9F7C9"
                         value={password}
                         onChangeText={setPassword}
                         secureTextEntry={!showPassword}
@@ -134,19 +136,19 @@ const SignupScreen = ({ navigation }) => {
 
                 <View style={styles.inputContainer}>
                     <TouchableOpacity onPress={toggleShowRetypePassword}>
-                        <Icon name={showRetypePassword ? 'eye-slash' : 'eye'} size={17} color="#00A39D" />
+                        <Icon name={showRetypePassword ? 'eye-slash' : 'eye'} size={17} color="#F9F7C9" />
                     </TouchableOpacity>
-                    {/* <Icon name="lock" size={20} color="#AC87C5" /> */}
+                    
                     <TextInput
                         style={styles.input}
                         placeholder="Masukkan Ulang Password"
-                        placeholderTextColor="#00A39D"
+                        placeholderTextColor="#F9F7C9"
                         value={retypePassword}
                         onChangeText={setRetypePassword}
-                        secureTextEntry={!showPassword}
-                    />
+                        secureTextEntry={!showPassword} 
+                     />
 
-                </View>
+                </View> 
 
                 <TouchableOpacity
                     disabled={!username || !password || !name || !retypePassword }
@@ -223,11 +225,12 @@ const styles = StyleSheet.create({
         padding: 10,
         borderWidth: 1,
         borderRadius: 10,
-        borderColor: '#00A39D',
-        backgroundColor: '#F9F7C9',
+        borderColor: '#F9F7C9',
+        //backgroundColor: '#F9F7C9',
+        color: '#F9F7C9'
     },
     signbutton: {
-        backgroundColor: '#AAD9BB',
+        backgroundColor: '#F8AD3C',
         padding: 10,
         borderRadius: 5,
         width: 200,
@@ -235,7 +238,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     signtext: {
-        color: '#00A39D',
+        color: '#F9F7C9',
         alignItems: 'center',
         fontWeight: 'bold',
         position: 'relative',
@@ -266,7 +269,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     button: {
-        backgroundColor: '#AC87C5',
+        backgroundColor: '#F8AD3C',
         padding: 10,
         borderRadius: 5,
         width: 70,
