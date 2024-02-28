@@ -58,10 +58,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
     justifyContent: 'center',
-    backgroundColor:'#AC87C5'
+    backgroundColor:'#00A39D'
   },
   okText: {
-    color: '#FFE5E5',
+    color: '#F9F7C9',
     alignItems: 'center',
     fontWeight: 'bold',
     position: 'relative'

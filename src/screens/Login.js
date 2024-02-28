@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import PopUpLogin from '../components/PopUpLogin';
+import { ImageBackground } from 'react-native';
 
 const LoginScreen = ({ navigation }) => {
+  const Background = require("../assets/bg.png");
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
@@ -44,28 +46,31 @@ const LoginScreen = ({ navigation }) => {
   };
 
   return (
+    <ImageBackground source={require('../assets/bg.png')} // Replace with the path to your image
+    style={styles.backgroundGradient}>
+    
     <View style={styles.container}>
-      <Image
-        source={require('../assets/gbhome.png')}
+    <Image
+        source={require('../assets/bsilogo.png')}
         style={styles.logo}
       />
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Icon name="user" size={20} color="#AC87C5" />
+        <Icon name="user" size={20} color="#00A39D" />
         <TextInput
           style={styles.input}
           placeholder='Masukkan Username'
-          placeholderTextColor='#756AB6'
+          placeholderTextColor='#00A39D'
           value={username}
           onChangeText={setUserName}
         />
       </View>
 
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Icon name="lock" size={20} color="#AC87C5" />
+        <Icon name="lock" size={20} color="#00A39D" />
         <TextInput
           style={styles.input}
           placeholder='Masukkan Password'
-          placeholderTextColor='#756AB6'
+          placeholderTextColor='#00A39D'
           value={password}
           onChangeText={setPassword}
           secureTextEntry
@@ -87,6 +92,7 @@ const LoginScreen = ({ navigation }) => {
         message={message}
       />
     </View>
+    </ImageBackground>
   );
 };
 
@@ -94,34 +100,34 @@ const LoginScreen = ({ navigation }) => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#FFFFFF',
+  backgroundGradient: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 30,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
+
   signButton: {
     width: '100%',
     alignItems: 'center',
   },
   logo: {
-    width: 300,
-    height: 190,
+    width: 315,
+    height: 153,
     alignItems: 'center',
     marginBottom: 30,
-  },
+},
   input: {
-    borderColor: '#756ab6',
+    borderColor: '#00A39D',
     margin: 5,
     padding: 10,
     borderWidth: 1,
     width: 300,
     borderRadius: 10,
-    backgroundColor: '#FFE5E5',
+    backgroundColor: '#F9F7C9',
   },
   loginButton: {
-    backgroundColor: '#AC87C5',
+    backgroundColor: '#AAD9BB',
     padding: 10,
     borderRadius: 5,
     width: 320,
@@ -129,13 +135,14 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   loginText: {
-    color: '#FFE5E5',
+    color: '#00A39D',
     alignItems: 'center',
     fontWeight: 'bold',
     position: 'relative'
   },
   buttonText: {
-    color: '#E0AED0',
+    color: '#FFFFFF',
     alignItems: 'center',
+    fontWeight: 'bold',
   },
 });

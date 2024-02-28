@@ -10,9 +10,11 @@ const Background = require("../assets/bg.png");
   return (
     <ImageBackground source={require('../assets/bg.png')} // Replace with the path to your image
     style={styles.backgroundGradient}>
-
-    
     <View style={styles.container}>
+    <Image
+        source={require('../assets/bsilogo.png')}
+        style={styles.logo}
+      />
       <Text style={styles.hiText}>Selamat Datang di Layanan Booking Antrean{'\n'}</Text>
   
       <TouchableOpacity style={styles.logButton} onPress={() => navigation.navigate('Login')}>
@@ -36,19 +38,24 @@ const styles = StyleSheet.create({
     backgroundGradient: {
         flex: 1,
         width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-      },
-
-  logo: {
-    width: 308,
-    height: 153,
-    alignItems: 'center',
-    marginBottom: 30,
-  },
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 30,
+    },
+    logo: {
+        width: 315,
+        height: 153,
+        alignItems: 'center',
+        marginBottom: 30,
+    },
   hiText: {
     color: '#F9F7C9',
-    fontSize: 36,
+    fontSize: 25,
     fontWeight: 'bold',
     alignItems: 'center',
   },

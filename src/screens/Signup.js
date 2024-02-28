@@ -3,6 +3,7 @@ import { StyleSheet, Text, Image, View, TextInput, TouchableOpacity, Modal } fro
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 import PopUpSignup from '../components/PopUpSignup';
+import { ImageBackground } from 'react-native';
 
 const SignupScreen = ({ navigation }) => {
     const [username, setUserName] = useState('');
@@ -86,25 +87,31 @@ const SignupScreen = ({ navigation }) => {
     }; 
 
     return (
+        <ImageBackground source={require('../assets/bg.png')} // Replace with the path to your image
+        style={styles.backgroundGradient}>
         <View style={styles.container}>
+        <Image
+        source={require('../assets/bsilogo.png')}
+        style={styles.logo}
+      />
             <View style={styles.loginContainer}>
                 <View style={styles.inputContainer}>
-                    <Icon name="user" size={20} color="#AC87C5" />
+                    <Icon name="user" size={20} color="#00A39D" />
                     <TextInput
                         style={styles.input}
                         placeholder="Masukkan Nama"
-                        placeholderTextColor="#FFE5E5"
+                        placeholderTextColor="#00A39D"
                         value={name}
                         onChangeText={setName}
                     />
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Icon name="user" size={20} color="#AC87C5" />
+                    <Icon name="user" size={20} color="#00A39D" />
                     <TextInput
                         style={styles.input}
                         placeholder="Masukkan Username"
-                        placeholderTextColor="#FFE5E5"
+                        placeholderTextColor="#00A39D"
                         value={username}
                         onChangeText={setUserName}
                     />
@@ -113,12 +120,12 @@ const SignupScreen = ({ navigation }) => {
                 <View style={styles.inputContainer}>
                     {/* <Icon name="lock" size={20} color="#AC87C5" /> */}
                     <TouchableOpacity onPress={toggleShowPassword}>
-                        <Icon name={showPassword ? 'eye-slash' : 'eye'} size={17} color="#AC87C5" />
+                        <Icon name={showPassword ? 'eye-slash' : 'eye'} size={17} color="#00A39D" />
                     </TouchableOpacity>
                     <TextInput
                         style={styles.input}
                         placeholder="Masukkan Password"
-                        placeholderTextColor="#FFE5E5"
+                        placeholderTextColor="#00A39D"
                         value={password}
                         onChangeText={setPassword}
                         secureTextEntry={!showPassword}
@@ -127,13 +134,13 @@ const SignupScreen = ({ navigation }) => {
 
                 <View style={styles.inputContainer}>
                     <TouchableOpacity onPress={toggleShowRetypePassword}>
-                        <Icon name={showRetypePassword ? 'eye-slash' : 'eye'} size={17} color="#AC87C5" />
+                        <Icon name={showRetypePassword ? 'eye-slash' : 'eye'} size={17} color="#00A39D" />
                     </TouchableOpacity>
                     {/* <Icon name="lock" size={20} color="#AC87C5" /> */}
                     <TextInput
                         style={styles.input}
                         placeholder="Masukkan Ulang Password"
-                        placeholderTextColor="#FFE5E5"
+                        placeholderTextColor="#00A39D"
                         value={retypePassword}
                         onChangeText={setRetypePassword}
                         secureTextEntry={!showPassword}
@@ -179,24 +186,24 @@ const SignupScreen = ({ navigation }) => {
                 </Modal> */}
             </View>
         </View>
+        </ImageBackground>
     );
 };
 
 export default SignupScreen;
 
 const styles = StyleSheet.create({
-    container: {
+    backgroundGradient: {
         flex: 1,
-        flexDirection: 'column',
-        backgroundColor: '#FFE5E5',
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+      },
+      logo: {
+        width: 315,
+        height: 153,
         alignItems: 'center',
-        justifyContent: 'center',
-    },
-    logo: {
-        width: 130,
-        height: 180,
-        alignItems: 'center',
-        marginBottom: 10,
+        marginBottom: 30,
     },
     loginContainer: {
         flexDirection: 'column',
@@ -216,11 +223,11 @@ const styles = StyleSheet.create({
         padding: 10,
         borderWidth: 1,
         borderRadius: 10,
-        borderColor: '#AC87C5',
-        backgroundColor: '#E0AED0',
+        borderColor: '#00A39D',
+        backgroundColor: '#F9F7C9',
     },
     signbutton: {
-        backgroundColor: '#AC87C5',
+        backgroundColor: '#AAD9BB',
         padding: 10,
         borderRadius: 5,
         width: 200,
@@ -228,7 +235,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     signtext: {
-        color: '#FFE5E5',
+        color: '#00A39D',
         alignItems: 'center',
         fontWeight: 'bold',
         position: 'relative',
