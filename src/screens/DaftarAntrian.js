@@ -16,6 +16,10 @@ const Bsi = require("../assets/bsilogo.png");
 const Teller = require("../assets/teller.png");
 const Teller1 = require("../assets/teller1.png");
 
+
+const Customer = require("../assets/customer-service.png");
+
+
 const handleLogin = () => {
   // Logika autentikasi bisa ditambahkan di sini
   // Misalnya, memeriksa username dan password dengan data di server
@@ -51,6 +55,7 @@ const DaftarAntrian = () => {
           <Text style={styles.buttonText}>CS</Text>
           <Image
             source={Teller1}
+            source={Customer}
             style={{ width: 80, height: 80, marginTop: 20 }}
           />
         </TouchableOpacity>
