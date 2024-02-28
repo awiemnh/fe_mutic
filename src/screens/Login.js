@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: 300,
     borderRadius: 10,
+    color: '#F9F7C9'
     //backgroundColor: '#F9F7C9',
   },
   loginButton: {
