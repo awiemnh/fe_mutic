@@ -126,7 +126,7 @@ function AntrianTeller() {
         {nameError ? <Text style={styles.error}>{nameError}</Text> : null}
 
         <View style={styles.buttonContainer}>
-          <Button title="Submit" onPress={handleSubmit} color="white" />
+          <Button title="Submit" onPress={handleSubmit} color="black" />
         </View>
       </ScrollView>
     </ImageBackground>

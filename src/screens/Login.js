@@ -25,11 +25,10 @@ const LoginScreen = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/signup", {
-        username,
-        password,
-      });
-      console.log("status", response.status);
+
+      const response = await axios.post('http://192.168.14.164:3000/api/login', { username, password });
+      console.log('status', response.status);
+
       setStatus(response.status);
 
       const token = response.data.token;
@@ -50,6 +49,7 @@ const LoginScreen = ({ navigation }) => {
       console.error("Login Gagal", error);
     }
   };
+
 
   const handleCloseModal = () => {
     setModalVisible(false);

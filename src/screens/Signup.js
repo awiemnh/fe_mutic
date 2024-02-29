@@ -53,7 +53,7 @@ const SignupScreen = ({ navigation }) => {
           }
   
           // Check if the username already exists
-          const response = await axios.post('http://localhost:5000/api/signup', { username, password, email, retypePassword });
+          const response = await axios.post('http://192.168.14.164:3000/api/signup', { username, password, email, retypePassword });
 
           console.log('response', response);
   
@@ -121,9 +121,9 @@ const SignupScreen = ({ navigation }) => {
 
                 <View style={styles.inputContainer}>
                     {/* <Icon name="lock" size={20} color="#AC87C5" /> */}
-                    <TouchableOpacity onPress={toggleShowPassword}>
+                    {/* <TouchableOpacity onPress={toggleShowPassword}>
                         <Icon name={showPassword ? 'eye-slash' : 'eye'} size={17} color="#F9F7C9" />
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                     <TextInput
                         style={styles.input}
                         placeholder="Masukkan Password"
@@ -151,7 +151,7 @@ const SignupScreen = ({ navigation }) => {
                 </View> 
 
                 <TouchableOpacity
-                    disabled={!username || !password || !name || !retypePassword }
+                    disabled={!username || !password || !retypePassword }
                     style={styles.signbutton}
                     onPress={handleSignUp}>
                     <Text style={styles.signtext}>Sign Up</Text>

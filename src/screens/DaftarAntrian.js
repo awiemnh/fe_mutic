@@ -25,7 +25,7 @@ const handleLogin = () => {
   // ... logika autentikasi lainnya
 };
 
-const DaftarAntrian = () => {
+const DaftarAntrian = ({ navigation }) => {
   return (
     <ImageBackground
       source={Background}
