@@ -53,7 +53,7 @@ const SignupScreen = ({ navigation }) => {
           }
   
           // Check if the username already exists
-          const response = await axios.post('https://kind-fez-ox.cyclic.app/api/signup', { username, password, email, retypePassword });
+          const response = await axios.post('http://localhost:5000/api/signup', { username, password, email, retypePassword });
 
           console.log('response', response);
   
@@ -61,7 +61,7 @@ const SignupScreen = ({ navigation }) => {
           // If everything is successful, show the success modal and navigate to login screen
           setSuccessModalVisible(true); // Set success modal visible
           setErrorModalVisible(false); // Hide error popup if sign up is successful
-        //   navigation.navigate('Login'); // Moved this line to after setting success modal visible
+          navigation.navigate('Login'); // Moved this line to after setting success modal visible
       } catch (error) {
           console.log(error.code);
           if (error.code === 'ERR_NETWORK' || error.code === "ERR_BAD_REQUEST") {
