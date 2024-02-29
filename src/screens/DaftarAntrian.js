@@ -25,7 +25,7 @@ const Customer = require("../assets/customer-service.png");
 //   // ... logika autentikasi lainnya
 // };
 
-const DaftarAntrian = () => {
+const DaftarAntrian = ({ navigation }) => {
   return (
     <ImageBackground
       source={Background}
