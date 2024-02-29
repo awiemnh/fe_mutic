@@ -4,18 +4,29 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 //import {useFonts} from 'expo-font';
+<<<<<<< HEAD
 import Home from "./src/screens/Home";
 import Login from "./src/screens/Login";
 import Signup from "./src/screens/Signup";
 import DaftarAntrian from "./src/screens/DaftarAntrian";
 import AntrianTeller from "./src/screens/AntrianTeller";
 import AntrianCS from "./src/screens/AntrianCS";
+=======
+import Home from './src/screens/Home';
+import Login from './src/screens/Login';
+import Signup from './src/screens/Signup';
+import DaftarAntrian from './src/screens/DaftarAntrian';
+import AntrianTeller from './src/screens/AntrianTeller';
+import AntrianCS from './src/screens/AntrianCS';
+
+>>>>>>> 87597e5e1152e95a56881f430dec1520502c671d
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
+<<<<<<< HEAD
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
@@ -47,6 +58,15 @@ const App = () => {
           component={AntrianTeller}
           options={{ headerShown: false }}
         />
+=======
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
+        <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }}/>
+        <Stack.Screen name="DaftarAntrian" component={DaftarAntrian} options={{ headerShown: false }}/>
+        <Stack.Screen name="AntrianCS" component={AntrianCS} options={{ headerShown: false }}/>
+        <Stack.Screen name="AntrianTeller" component={AntrianTeller} options={{ headerShown: false }}/>
+>>>>>>> 87597e5e1152e95a56881f430dec1520502c671d
       </Stack.Navigator>
     </NavigationContainer>
   );

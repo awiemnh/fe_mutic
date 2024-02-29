@@ -126,7 +126,7 @@ function AntrianTeller() {
         {nameError ? <Text style={styles.error}>{nameError}</Text> : null}
 
         <View style={styles.buttonContainer}>
-          <Button title="Submit" onPress={handleSubmit} color="white" />
+          <Button title="Submit" onPress={handleSubmit} color="black" />
         </View>
       </ScrollView>
     </ImageBackground>
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 30,
-    backgroundColor: "#AAD9BB",
+    backgroundColor: "#F8AD3C",
     borderRadius: 10,
     height: 45,
   },
