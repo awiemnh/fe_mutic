@@ -17,13 +17,13 @@ const Teller = require("../assets/teller.png");
 const Teller1 = require("../assets/teller1.png");
 const Customer = require("../assets/customer-service.png");
 
-// const handleLogin = () => {
-//   // Logika autentikasi bisa ditambahkan di sini
-//   // Misalnya, memeriksa username dan password dengan data di server
-//   console.log("Username:", username);
-//   console.log("Password:", password);
-//   // ... logika autentikasi lainnya
-// };
+const handleLogin = () => {
+  // Logika autentikasi bisa ditambahkan di sini
+  // Misalnya, memeriksa username dan password dengan data di server
+  console.log("Username:", username);
+  console.log("Password:", password);
+  // ... logika autentikasi lainnya
+};
 
 const DaftarAntrian = ({ navigation }) => {
   return (
@@ -37,7 +37,10 @@ const DaftarAntrian = ({ navigation }) => {
         style={{ width: 410, height: 120, marginBottom: 50 }}
       />
       <View style={styles.posisi}>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AntrianTeller')}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("AntrianTeller")}
+        >
           <Text style={styles.buttonText1}>TELLER</Text>
           <Image
             source={Teller1}
@@ -48,7 +51,10 @@ const DaftarAntrian = ({ navigation }) => {
             }}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('AntrianCS')}>
+        <TouchableOpacity
+          style={styles.button1}
+          onPress={() => navigation.navigate("AntrianCS")}
+        >
           <Text style={styles.buttonText}>CS</Text>
           <Image
             source={Customer}
@@ -56,6 +62,9 @@ const DaftarAntrian = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
+      <TouchableOpacity style={styles.logout} onPress={handleLogin}>
+        <Text style={styles.logoutText}>Logout</Text>
+      </TouchableOpacity>
     </ImageBackground>
   );
 };
@@ -123,6 +132,26 @@ const styles = StyleSheet.create({
   },
   posisi: {
     flexDirection: "row",
+  },
+  logout: {
+    backgroundColor: "#F8AD3C",
+    padding: 12,
+    margin: 20,
+    borderRadius: 24,
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 0.26,
+    width: 311,
+    alignItems: "center",
+    marginTop: 40,
+  },
+  logoutText: {
+    fontFamily: "Rubik-Medium",
+    color: "white",
+    fontSize: 20,
+    fontWeight: "500",
+    paddingHorizontal: 12,
   },
 });
 

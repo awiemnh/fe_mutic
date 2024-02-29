@@ -8,6 +8,7 @@ import {
   TextInput,
   Button,
   Image,
+  TouchableOpacity,
 } from "react-native";
 
 const Background = require("../assets/bg1.png");
@@ -28,33 +29,30 @@ function NoAntrianCS() {
       resizeMode="cover"
       style={styles.background}
     >
-      <ScrollView contentContainerStyle={{}}>
-        <View style={{ marginRight: 200, marginTop: 100 }}>
-          <Button title="<< Home" onPress={handleLogin} color="white" />
-        </View>
-        <View style={styles.content}>
-          <View style={styles.buttonContainer}></View>
-          <View style={styles.borderin}>
-            <View style={styles.borderin1}>
-              <Text style={styles.title}>NO ANTRIAN TELLER ANDA</Text>
-            </View>
-            <Text style={styles.title1}>1</Text>
-            <Image
-              source={Customer}
-              style={{
-                //   flex: 1,
-                //   justifyContent: "center",
-                //   alignItems: "center",
-                width: 150,
-                height: 150,
-                marginTop: 40,
-                marginBottom: 100,
-                marginLeft: 77,
-              }}
-            />
+      <View style={styles.content}>
+        <View style={styles.borderin}>
+          <View style={styles.borderin1}>
+            <Text style={styles.title}>NO ANTRIAN TELLER ANDA</Text>
           </View>
+          <Text style={styles.title1}>1</Text>
+          <Image
+            source={Customer}
+            style={{
+              //   flex: 1,
+              //   justifyContent: "center",
+              //   alignItems: "center",
+              width: 150,
+              height: 150,
+              marginTop: 40,
+              marginBottom: 100,
+              marginLeft: 77,
+            }}
+          />
         </View>
-      </ScrollView>
+      </View>
+      <TouchableOpacity style={styles.logout} onPress={handleLogin}>
+        <Text style={styles.logoutText}>HOME</Text>
+      </TouchableOpacity>
     </ImageBackground>
   );
 }
@@ -117,7 +115,28 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    marginTop: 40,
+    marginTop: 300,
+  },
+  logout: {
+    backgroundColor: "#F8AD3C",
+    padding: 12,
+    margin: 20,
+    borderRadius: 24,
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 0.26,
+    width: 250,
+    alignItems: "center",
+    marginTop: 20,
+    marginBottom: 300,
+  },
+  logoutText: {
+    fontFamily: "Rubik-Medium",
+    color: "white",
+    fontSize: 20,
+    fontWeight: "500",
+    paddingHorizontal: 12,
   },
 });
 
