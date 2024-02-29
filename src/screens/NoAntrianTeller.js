@@ -49,7 +49,7 @@ function NoAntrianTeller() {
           />
         </View>
       </View>
-      <TouchableOpacity style={styles.logout} onPress={handleLogin}>
+      <TouchableOpacity style={styles.logout} onPress={() => navigation.navigate("DaftarAntrian")}>
         <Text style={styles.logoutText}>HOME</Text>
       </TouchableOpacity>
     </ImageBackground>
