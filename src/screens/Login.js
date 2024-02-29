@@ -17,7 +17,7 @@ const LoginScreen = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://kind-fez-ox.cyclic.app/api/login', { username, password });
+      const response = await axios.post('http://localhost:8001/api/login', { username, password });
       console.log('status', response.status);
       setStatus(response.status);
 
@@ -29,7 +29,7 @@ const LoginScreen = ({ navigation }) => {
       setPassword('');
 
       //navigation.navigate('Splash');
-      navigation.navigate('Welcome', { token, username });
+      navigation.navigate('DaftarAntrian', { token, username });
     } catch (error) {
 
       if (error.code === "ERR_BAD_REQUEST") {

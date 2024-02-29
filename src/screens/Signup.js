@@ -53,7 +53,7 @@ const SignupScreen = ({ navigation }) => {
           }
   
           // Check if the username already exists
-          const response = await axios.post('https://kind-fez-ox.cyclic.app/api/signup', { username, password, email, retypePassword });
+          const response = await axios.post('http://localhost:8001/api/signup', { username, password, email, retypePassword });
 
           console.log('response', response);
   
@@ -151,7 +151,7 @@ const SignupScreen = ({ navigation }) => {
                 </View> 
 
                 <TouchableOpacity
-                    disabled={!username || !password || !name || !retypePassword }
+                    disabled={!username || !password || !retypePassword }
                     style={styles.signbutton}
                     onPress={handleSignUp}>
                     <Text style={styles.signtext}>Sign Up</Text>
