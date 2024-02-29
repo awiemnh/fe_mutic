@@ -17,13 +17,13 @@ const Teller = require("../assets/teller.png");
 const Teller1 = require("../assets/teller1.png");
 const Customer = require("../assets/customer-service.png");
 
-const handleLogin = () => {
-  // Logika autentikasi bisa ditambahkan di sini
-  // Misalnya, memeriksa username dan password dengan data di server
-  console.log("Username:", username);
-  console.log("Password:", password);
-  // ... logika autentikasi lainnya
-};
+// const handleLogin = () => {
+//   // Logika autentikasi bisa ditambahkan di sini
+//   // Misalnya, memeriksa username dan password dengan data di server
+//   console.log("Username:", username);
+//   console.log("Password:", password);
+//   // ... logika autentikasi lainnya
+// };
 
 const DaftarAntrian = () => {
   return (
@@ -37,7 +37,7 @@ const DaftarAntrian = () => {
         style={{ width: 410, height: 120, marginBottom: 50 }}
       />
       <View style={styles.posisi}>
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AntrianTeller')}>
           <Text style={styles.buttonText1}>TELLER</Text>
           <Image
             source={Teller1}
@@ -48,7 +48,7 @@ const DaftarAntrian = () => {
             }}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button1} onPress={handleLogin}>
+        <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('AntrianCS')}>
           <Text style={styles.buttonText}>CS</Text>
           <Image
             source={Customer}
