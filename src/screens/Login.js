@@ -32,6 +32,7 @@ const LoginScreen = ({ navigation }) => {
       setStatus(response.status);
 
       const token = response.data.token;
+           
       setToken(token);
       console.log("Token:", token);
 

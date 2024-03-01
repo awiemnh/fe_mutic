@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
+import axios from "axios";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -17,15 +18,25 @@ const Teller = require("../assets/teller.png");
 const Teller1 = require("../assets/teller1.png");
 const Customer = require("../assets/customer-service.png");
 
-const handleLogin = () => {
-  // Logika autentikasi bisa ditambahkan di sini
-  // Misalnya, memeriksa username dan password dengan data di server
-  console.log("Username:", username);
-  console.log("Password:", password);
-  // ... logika autentikasi lainnya
-};
 
-const DaftarAntrian = ({ navigation }) => {
+const DaftarAntrian = ({ navigation,route }) => {
+  const {  username,token } = route.params;
+
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post("http://192.168.14.164:3000/api/logout", {
+        username
+      },{headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+    }});
+      navigation.replace("Login", { username, token });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  
   return (
     <ImageBackground
       source={Background}
@@ -62,7 +73,7 @@ const DaftarAntrian = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.logout} onPress={handleLogin}>
+      <TouchableOpacity style={styles.logout} onPress={handleLogout}>
         <Text style={styles.logoutText}>Logout</Text>
       </TouchableOpacity>
     </ImageBackground>
