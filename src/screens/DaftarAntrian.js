@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 import axios from "axios";
 import React, { useState } from "react";
+import PopUpLogout from '../components/PopUpLogout';
 import {
   StyleSheet,
   Text,
@@ -17,6 +18,7 @@ const Bsi = require("../assets/bsilogo.png");
 const Teller = require("../assets/teller.png");
 const Teller1 = require("../assets/teller1.png");
 const Customer = require("../assets/customer-service.png");
+
 
 
 const DaftarAntrian = ({ navigation,route }) => {
@@ -74,9 +76,19 @@ const DaftarAntrian = ({ navigation,route }) => {
         </TouchableOpacity>
       </View>
       <TouchableOpacity style={styles.logout} onPress={handleLogout}>
+
         <Text style={styles.logoutText}>Logout</Text>
       </TouchableOpacity>
+
+      <PopUpLogout 
+                    visible={logoutModalVisible}
+                    onClose={() => setLogoutModalVisible(false)}
+                    handleLogout={handleLogout}
+                    />
+
     </ImageBackground>
+
+    
   );
 };
 
@@ -163,6 +175,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "500",
     paddingHorizontal: 12,
+    fontWeight: "bold",
   },
 });
 
