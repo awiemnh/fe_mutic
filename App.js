@@ -10,7 +10,8 @@ import Signup from './src/screens/Signup';
 import DaftarAntrian from './src/screens/DaftarAntrian';
 import AntrianTeller from './src/screens/AntrianTeller';
 import AntrianCS from './src/screens/AntrianCS';
-
+import NoAntrianCS from './src/screens/NoAntrianCS';
+import NoAntrianTeller from './src/screens/NoAntrianTeller';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,8 @@ const App = () => {
         <Stack.Screen name="DaftarAntrian" component={DaftarAntrian} options={{ headerShown: false }}/>
         <Stack.Screen name="AntrianCS" component={AntrianCS} options={{ headerShown: false }}/>
         <Stack.Screen name="AntrianTeller" component={AntrianTeller} options={{ headerShown: false }}/>
+        <Stack.Screen name="NoAntrianCS" component={NoAntrianCS} options={{ headerShown: false }}/>
+        <Stack.Screen name="NoAntrianTeller" component={NoAntrianTeller} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
