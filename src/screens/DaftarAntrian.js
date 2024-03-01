@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
+import PopUpLogout from '../components/PopUpLogout';
 import {
   StyleSheet,
   Text,
@@ -25,7 +26,34 @@ const handleLogin = () => {
   // ... logika autentikasi lainnya
 };
 
+const handleLogout = async () => {
+        try {
+            const response = await axios.delete(
+                `https://kind-fez-ox.cyclic.app/api/logout/${username}`, 
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+            
+            if (response.status === 200) {
+                navigation.navigate('Login');
+                console.log('Logout Success');
+            } else {
+                console.log('Logout Failed');
+            }
+        } catch (error) {
+            console.error('Logout failed:', error);
+            
+        }
+        setLogoutModalVisible(false);  
+    };
+
 const DaftarAntrian = ({ navigation }) => {
+  const [logoutModalVisible, setLogoutModalVisible] = useState(false);
+
   return (
     <ImageBackground
       source={Background}
@@ -62,10 +90,19 @@ const DaftarAntrian = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.logout} onPress={handleLogin}>
+      <TouchableOpacity style={styles.logout} onPress={() => setLogoutModalVisible(true)}>
         <Text style={styles.logoutText}>Logout</Text>
       </TouchableOpacity>
+
+      <PopUpLogout 
+                    visible={logoutModalVisible}
+                    onClose={() => setLogoutModalVisible(false)}
+                    handleLogout={handleLogout}
+                    />
+
     </ImageBackground>
+
+    
   );
 };
 
@@ -152,6 +189,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "500",
     paddingHorizontal: 12,
+    fontWeight: "bold",
   },
 });
 
